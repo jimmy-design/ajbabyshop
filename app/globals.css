@@ -4852,3 +4852,121 @@ textarea {
   height: 18px;
   stroke-width: 3;
 }
+
+/* AJ identity: crisp vector monogram and a consistent DM Sans wordmark. */
+.logo {
+  gap: 12px;
+}
+.logo .brand-mark {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+.logo > .logo-wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--sans);
+  line-height: 1;
+}
+.logo .logo-name {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  color: #71344f;
+  white-space: nowrap;
+}
+.logo .logo-wordmark small {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.35px;
+  color: #a05579;
+  margin: 0;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.footer .logo {
+  transform: none;
+}
+.admin-sidebar .logo {
+  transform: none;
+  gap: 9px;
+  margin: 0 0 42px;
+}
+.admin-sidebar .logo .brand-mark {
+  width: 40px;
+  height: 40px;
+}
+.admin-sidebar .logo .logo-name {
+  font-size: 19px;
+}
+.admin-sidebar .logo .logo-wordmark small {
+  font-size: 6px;
+  letter-spacing: 0.8px;
+}
+@media (max-width: 1150px) {
+  .header .logo .brand-mark {
+    width: 45px;
+    height: 45px;
+  }
+  .header .logo .logo-name {
+    font-size: 20px;
+  }
+  .header .logo .logo-wordmark small {
+    font-size: 7px;
+    letter-spacing: 0.9px;
+  }
+}
+@media (max-width: 640px) {
+  .header-main .logo {
+    gap: 9px;
+  }
+  .header .logo .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+  .header .logo .logo-name {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+  .header .logo .logo-wordmark {
+    gap: 5px;
+  }
+  .header .logo .logo-wordmark small {
+    font-size: 6px;
+    letter-spacing: 0.6px;
+  }
+  .footer .logo .brand-mark {
+    width: 46px;
+    height: 46px;
+  }
+  .footer .logo .logo-name {
+    font-size: 22px;
+  }
+}
+
+/* Keep the category collection on one line. */
+.categories {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 36px);
+  align-items: start;
+}
+.category-card { min-width: 0; }
+.category-card > span { text-align: center; }
+@media (max-width: 900px) {
+  .categories {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 135px;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 4px 2px 18px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: #d982ab #ffe7f2;
+  }
+  .category-card { scroll-snap-align: start; }
+}
+@media (max-width: 640px) {
+  .categories { grid-auto-columns: 112px; gap: 16px; }
+}

@@ -25,15 +25,15 @@ import {
 import { useShop } from "./shop-provider";
 import { HeroSlider } from "./hero-slider";
 import { FooterContacts, FooterSocials } from "./footer-contact";
+import { BrandMark } from "./brand-mark";
 import { money, photo, type Product } from "@/lib/data";
 export function Logo() {
   return (
     <Link href="/" className="logo" aria-label="AJ Baby Shop home">
-      <span className="logo-mark">
-        aj<span>✿</span>
-      </span>
-      <span>
-        baby shop<small>LITTLE THINGS. ENDLESS LOVE.</small>
+      <BrandMark />
+      <span className="logo-wordmark">
+        <span className="logo-name">AJ Baby Shop</span>
+        <small>LITTLE THINGS. ENDLESS LOVE.</small>
       </span>
     </Link>
   );
@@ -200,7 +200,9 @@ export function ProductCard({ product: p }: { product: Product }) {
         <button
           className="quick-add"
           type="button"
-          aria-label={p.stock ? `Add ${p.name} to bag` : `${p.name} is sold out`}
+          aria-label={
+            p.stock ? `Add ${p.name} to bag` : `${p.name} is sold out`
+          }
           title={p.stock ? "Add to bag" : "Sold out"}
           disabled={!p.stock}
           onClick={() => addToCart(p)}
