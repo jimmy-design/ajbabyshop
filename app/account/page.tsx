@@ -55,7 +55,11 @@ export default function Account() {
                       <span className={`status status-${o.status}`}>
                         {o.status}
                       </span>
-                      <strong>{money(o.total)}</strong>
+                      <strong>
+                        <span className="currency-amount">
+                          {money(o.total)}
+                        </span>
+                      </strong>
                     </summary>
                     <div className="order-detail">
                       <p>
@@ -64,7 +68,11 @@ export default function Account() {
                       {o.items.map((i, n) => (
                         <div key={n}>
                           {i.name} · {i.size} × {i.quantity}
-                          <strong>{money(i.price * i.quantity)}</strong>
+                          <strong>
+                            <span className="currency-amount">
+                              {money(i.price * i.quantity)}
+                            </span>
+                          </strong>
                         </div>
                       ))}
                       <p>Payment: cash on delivery</p>

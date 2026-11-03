@@ -369,7 +369,11 @@ export default function Admin() {
                                   {o.status}
                                 </span>
                               </td>
-                              <td>{money(o.total)}</td>
+                              <td>
+                                <span className="currency-amount">
+                                  {money(o.total)}
+                                </span>
+                              </td>
                             </tr>
                           ))}
                         </tbody>
@@ -487,7 +491,11 @@ export default function Admin() {
                           {categories.find((c) => c.slug === p.category)
                             ?.name || p.category}
                         </td>
-                        <td>{money(p.price)}</td>
+                        <td>
+                          <span className="currency-amount">
+                            {money(p.price)}
+                          </span>
+                        </td>
                         <td>
                           <span className={p.stock <= 5 ? "low-stock" : ""}>
                             {p.stock} in stock
@@ -611,7 +619,11 @@ export default function Admin() {
                       <span className={`status status-${o.status}`}>
                         {o.status}
                       </span>
-                      <strong>{money(o.total)}</strong>
+                      <strong>
+                        <span className="currency-amount">
+                          {money(o.total)}
+                        </span>
+                      </strong>
                     </summary>
                     <div className="order-detail">
                       <p>
@@ -623,12 +635,23 @@ export default function Admin() {
                       {o.items.map((i, n) => (
                         <div key={n}>
                           {i.name} · {i.size} × {i.quantity}
-                          <strong>{money(i.price * i.quantity)}</strong>
+                          <strong>
+                            <span className="currency-amount">
+                              {money(i.price * i.quantity)}
+                            </span>
+                          </strong>
                         </div>
                       ))}
                       <p>
-                        Delivery {money(o.shipping)} · Discount{" "}
-                        {money(o.discount)} · Cash on delivery
+                        Delivery{" "}
+                        <span className="currency-amount">
+                          {money(o.shipping)}
+                        </span>{" "}
+                        · Discount{" "}
+                        <span className="currency-amount">
+                          {money(o.discount)}
+                        </span>{" "}
+                        · Cash on delivery
                       </p>
                       <label>
                         Update status

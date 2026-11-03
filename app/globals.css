@@ -4951,8 +4951,12 @@ textarea {
   gap: clamp(16px, 2vw, 36px);
   align-items: start;
 }
-.category-card { min-width: 0; }
-.category-card > span { text-align: center; }
+.category-card {
+  min-width: 0;
+}
+.category-card > span {
+  text-align: center;
+}
 @media (max-width: 900px) {
   .categories {
     grid-template-columns: none;
@@ -4965,8 +4969,22 @@ textarea {
     scrollbar-width: thin;
     scrollbar-color: #d982ab #ffe7f2;
   }
-  .category-card { scroll-snap-align: start; }
+  .category-card {
+    scroll-snap-align: start;
+  }
 }
 @media (max-width: 640px) {
-  .categories { grid-auto-columns: 112px; gap: 16px; }
+  .categories {
+    grid-auto-columns: 112px;
+    gap: 16px;
+  }
+}
+
+/* Keep the currency label and amount equally prominent. */
+.currency-amount,
+.price,
+.price del,
+.order-summary strong,
+.stat-card strong {
+  font-weight: 700;
 }

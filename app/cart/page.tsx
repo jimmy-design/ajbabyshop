@@ -52,7 +52,7 @@ export default function Cart() {
             </h2>
             <p>
               Order #{placed.id.slice(0, 8).toUpperCase()} ·{" "}
-              {money(placed.total)}
+              <span className="currency-amount">{money(placed.total)}</span>
             </p>
             <p>
               {demo
@@ -89,8 +89,13 @@ export default function Cart() {
                         "Lovely! You’ve unlocked free delivery."
                       ) : (
                         <>
-                          You’re <b>{money(5000 - subtotal)}</b> away from free
-                          delivery.
+                          You’re{" "}
+                          <b>
+                            <span className="currency-amount">
+                              {money(5000 - subtotal)}
+                            </span>
+                          </b>{" "}
+                          away from free delivery.
                         </>
                       )}
                       <div className="progress-track">
@@ -114,7 +119,11 @@ export default function Cart() {
                             <div className="cart-item-info">
                               <Link href={`/product/${p.slug}`}>{p.name}</Link>
                               <small>{i.size}</small>
-                              <span>{money(p.price)}</span>
+                              <span>
+                                <span className="currency-amount">
+                                  {money(p.price)}
+                                </span>
+                              </span>
                               <Quantity
                                 value={i.quantity}
                                 max={p.stock}
@@ -122,7 +131,11 @@ export default function Cart() {
                               />
                             </div>
                             <div className="cart-item-end">
-                              <strong>{money(p.price * i.quantity)}</strong>
+                              <strong>
+                                <span className="currency-amount">
+                                  {money(p.price * i.quantity)}
+                                </span>
+                              </strong>
                               <button
                                 className="icon-btn"
                                 aria-label={`Remove ${p.name}`}
@@ -287,7 +300,9 @@ export default function Cart() {
                 <span>
                   Subtotal ({cart.reduce((s, i) => s + i.quantity, 0)} items)
                 </span>
-                <strong>{money(subtotal)}</strong>
+                <strong>
+                  <span className="currency-amount">{money(subtotal)}</span>
+                </strong>
               </div>
               <div>
                 <span>Delivery</span>
@@ -310,7 +325,11 @@ export default function Cart() {
               )}
               <div className="summary-total">
                 <span>Total before coupon</span>
-                <strong>{money(subtotal + shipping)}</strong>
+                <strong>
+                  <span className="currency-amount">
+                    {money(subtotal + shipping)}
+                  </span>
+                </strong>
               </div>
               {checkout ? (
                 <button

@@ -229,8 +229,12 @@ export function ProductCard({ product: p }: { product: Product }) {
         {p.name}
       </Link>
       <div className="price">
-        {money(p.price)}{" "}
-        {p.compare_price && <del>{money(p.compare_price)}</del>}
+        <span className="currency-amount">{money(p.price)}</span>{" "}
+        {p.compare_price && (
+          <del>
+            <span className="currency-amount">{money(p.compare_price)}</span>
+          </del>
+        )}
       </div>
       <div className="swatches">
         <i style={{ background: "#ddbcac" }} />

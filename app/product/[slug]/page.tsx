@@ -53,8 +53,14 @@ export default function ProductDetail({
             </div>
             <h1>{p.name}</h1>
             <div className="price detail-price">
-              {money(p.price)}{" "}
-              {p.compare_price && <del>{money(p.compare_price)}</del>}
+              <span className="currency-amount">{money(p.price)}</span>{" "}
+              {p.compare_price && (
+                <del>
+                  <span className="currency-amount">
+                    {money(p.compare_price)}
+                  </span>
+                </del>
+              )}
             </div>
             <p>{p.description}</p>
             <div className="stock-status">
