@@ -98,12 +98,12 @@ test("admin creates a category, product and coupon and can delete unused records
   await page.getByRole("textbox", { name: "Search collection" }).fill("Rosy");
   await expect(page.locator(".product-card")).toHaveCount(1);
   await page.goto("/admin");
-  await page.getByRole("button", { name: "Coupons", exact: true }).click();
-  await page.getByRole("button", { name: "Create coupon" }).click();
+  await page.getByRole("button", { name: "Discounts", exact: true }).click();
+  await page.getByRole("button", { name: "Create discount" }).click();
   dialog = page.getByRole("dialog");
-  await dialog.getByLabel("Coupon code").fill("LITTLE20");
+  await dialog.getByLabel("Discount code").fill("LITTLE20");
   await dialog.getByLabel("Discount (%)").fill("20");
-  await dialog.getByRole("button", { name: "Save coupon" }).click();
+  await dialog.getByRole("button", { name: "Save discount" }).click();
   await expect(page.locator(".coupon-grid")).toContainText("LITTLE20");
   await page.getByRole("button", { name: "Products", exact: true }).click();
   await page.getByRole("button", { name: "Delete Rosy little hat" }).click();

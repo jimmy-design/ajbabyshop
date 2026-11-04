@@ -33,7 +33,7 @@ const tabs = [
   { name: "Categories", icon: Shapes },
   { name: "Orders", icon: ShoppingBag },
   { name: "Customers", icon: Users },
-  { name: "Coupons", icon: Ticket },
+  { name: "Discounts", icon: Ticket },
   { name: "Settings", icon: Settings },
 ];
 const slugify = (s: string) =>
@@ -100,10 +100,9 @@ export default function Admin() {
         <Logo />
         <div className="auth-card">
           <span className="eyebrow">BEHIND THE LITTLE LOVELIES</span>
-          <h1>Your shop, beautifully managed.</h1>
           <p>
             {demo
-              ? "Explore the complete admin experience. Products, categories, orders, and coupons are saved in this browser."
+              ? "Explore the complete admin experience. Products, categories, orders, and discounts are saved in this browser."
               : "Sign in with your administrator account to manage your shop."}
           </p>
           {demo ? (
@@ -248,7 +247,7 @@ export default function Admin() {
                           ? "From a little click to a lovely delivery."
                           : tab === "Customers"
                             ? "The people at the heart of your shop."
-                            : tab === "Coupons"
+                            : tab === "Discounts"
                               ? "A little extra reason to smile."
                               : "The details behind your little business."}
                 </p>
@@ -278,12 +277,12 @@ export default function Admin() {
                   <Plus size={16} /> Add category
                 </button>
               )}
-              {tab === "Coupons" && (
+              {tab === "Discounts" && (
                 <button
                   className="button primary"
                   onClick={() => setCoupon({ active: true, percent: 10 })}
                 >
-                  <Plus size={16} /> Create coupon
+                  <Plus size={16} /> Create discount
                 </button>
               )}
               {tab === "Orders" && (
@@ -771,7 +770,7 @@ export default function Admin() {
               )}
             </section>
           )}
-          {tab === "Coupons" && (
+          {tab === "Discounts" && (
             <div className="coupon-grid">
               {coupons.map((c) => (
                 <div className="admin-panel coupon-card" key={c.id}>
@@ -788,7 +787,7 @@ export default function Admin() {
                     </span>
                   </p>
                   <button className="text-link" onClick={() => setCoupon(c)}>
-                    Edit coupon <Pencil size={14} />
+                    Edit discount <Pencil size={14} />
                   </button>
                 </div>
               ))}
@@ -1175,7 +1174,7 @@ export default function Admin() {
             <div className="modal-heading">
               <h2 id="coupon-title">A little gift code</h2>
               <button
-                aria-label="Close coupon editor"
+                aria-label="Close discount editor"
                 className="icon-btn"
                 onClick={() => setCoupon(null)}
               >
@@ -1200,7 +1199,7 @@ export default function Admin() {
               }}
             >
               <label>
-                Coupon code
+                Discount code
                 <input
                   name="code"
                   required
@@ -1227,11 +1226,11 @@ export default function Admin() {
                   type="checkbox"
                   defaultChecked={coupon.active}
                 />{" "}
-                Active coupon
+                Active discount
               </label>
               {error && <div className="form-error">{error}</div>}
               <button className="button primary" disabled={busy}>
-                Save coupon
+                Save discount
               </button>
             </form>
           </section>

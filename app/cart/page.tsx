@@ -324,7 +324,7 @@ export default function Cart() {
                 </p>
               )}
               <div className="summary-total">
-                <span>Total before coupon</span>
+                <span>Total before discount</span>
                 <strong>
                   <span className="currency-amount">
                     {money(subtotal + shipping)}

@@ -33,7 +33,7 @@ const pages: Record<string, { title: string; content: React.ReactNode }> = {
         <h2>Delivery in Kenya</h2>
         <p>
           Standard delivery is KSh 350. Delivery is free when your merchandise
-          subtotal reaches KSh 5,000, before coupon discounts. Confirm your full
+          subtotal reaches KSh 5,000, before discounts. Confirm your full
           address and phone number at checkout.
         </p>
         <p>
@@ -197,7 +197,7 @@ const pages: Record<string, { title: string; content: React.ReactNode }> = {
         <h2>Payment & delivery</h2>
         <p>
           This store offers cash on delivery. No card or mobile money payment is
-          collected through this site. Delivery costs and coupon discounts are
+          collected through this site. Delivery costs and discounts are
           recorded in the final order total.
         </p>
         <h2>Product information</h2>

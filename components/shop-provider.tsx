@@ -310,7 +310,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
         (c) => c.active && c.code === data.coupon.trim().toUpperCase(),
       );
       if (data.coupon && !coupon)
-        throw new Error("This coupon is invalid or inactive.");
+        throw new Error("This discount code is invalid or inactive.");
       const discount = Math.round((subtotal * (coupon?.percent || 0)) / 100);
       order = {
         id: crypto.randomUUID(),
@@ -378,7 +378,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       if (error) throw error;
       await refresh();
     } else setCoupons((p) => [...p.filter((x) => x.id !== c.id), c]);
-    notify("Coupon saved");
+    notify("Discount saved");
   }
   async function subscribe(email: string) {
     if (supabase) {
